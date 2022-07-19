@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "Name of the dataset"
+    },
+    "BIDSVersion": {
+      "type": "string",
+      "description": "The version of the BIDS standard"
+    },
+    "HEDVersion": {
+      "type": "string",
+      "description": "The version of the HED schema used to validate HED tags"
+    },
+    "DatasetType": {
+      "type": "string",
+      "description": "The interpretation of the dataset"
+    },
+    "License": {
+      "type": "string",
+      "description": "The license for the dataset"
+    },
+    "Authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of individuals who contributed to the creation/curation of the dataset"
+    },
+    "Acknowledgements": {
+      "type": "string",
+      "description": "Text acknowledging contributions of individuals or institutions beyond those listed in Authors or Funding"
+    },
+    "HowToAcknowledge": {
+      "type": "string",
+      "description": "Text containing instructions on how researchers using this dataset should acknowledge the original authors"
+    },
+    "Funding": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of sources of funding (grant numbers)"
+    },
+    "EthicsApprovals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of ethics committee approvals of the research protocols and/or protocol identifiers"
+    },
+    "ReferencesAndLinks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of references to publications that contain information on the dataset"
+    },
+    "DatasetDOI": {
+      "type": "string",
+      "description": "The Digital Object Identifier of the dataset"
+    },
+    "GeneratedBy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Name of the pipeline or process that generated the outputs"
+          },
+          "Version": {
+            "type": "string",
+            "description": "Version of the pipeline"
+          },
+          "Description": {
+            "type": "string",
+            "description": "Plain-text description of the pipeline or process that generated the outputs"
+          },
+          "CodeURL": {
+            "type": "string",
+            "description": "URL where the code used to generate the dataset may be found"
+          },
+          "Container": {
+            "type": "object",
+            "properties": {},
+            "description": "Used to specify the location and relevant attributes of software container image used to produce the dataset"
+          }
+        },
+        "required": [
+          "Name"
+        ]
+      },
+      "description": "Used to specify provenance of the dataset"
+    },
+    "SourceDatasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      },
+      "description": "Used to specify the locations and relevant attributes of all source datasets"
+    }
+  },
+  "title": "Dataset description",
+  "required": [
+    "Name",
+    "BIDSVersion"
+  ]
+}
