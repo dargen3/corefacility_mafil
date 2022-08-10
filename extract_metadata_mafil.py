@@ -1,7 +1,8 @@
 import argparse
+import datetime
 import json
-import jsonschema
 import pprint
+import jsonschema
 
 
 def load_arguments():
@@ -13,7 +14,7 @@ def load_arguments():
     return args
 
 
-def validate_metadata(metadata):
+def validate_metadata():
     json_scheme = json.loads(open("scheme_mafil.json", "r").read())
     validator = jsonschema.Draft202012Validator(json_scheme)
     errors = sorted(validator.iter_errors(metadata))
@@ -27,7 +28,13 @@ def validate_metadata(metadata):
         print("\n")
 
 
+def add_additional_info():
+    metadata["_version"] = "1.0.0"
+    metadata["_created"] = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+
 if __name__ == "__main__":
     args = load_arguments()
     metadata = json.loads(open(args.dataset_description, "r").read())
-    validate_metadata(metadata, json_scheme)
+    validate_metadata()
+    add_additional_info()
